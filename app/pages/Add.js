@@ -23,6 +23,7 @@ export default class Add extends Component {
     this.setState({
       text: ''
     })
+    Actions.pop()
   }
 
   render() {
@@ -34,25 +35,7 @@ export default class Add extends Component {
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
         />
-        <Button
-          onPress={this.addTodo}
-        >
-          Add
-        </Button>
-        <Button
-          containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
-          style={{fontSize: 12, color: 'green'}}
-          onPress={Actions.home}
-        >
-          Go To Home
-        </Button>
-        <Button
-          containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
-          style={{fontSize: 20, color: 'green'}}
-          onPress={Actions.done}
-        >
-          Go To Done
-        </Button>
+        <Button onPress={this.addTodo} > Add </Button>
       </View>
     )
   }

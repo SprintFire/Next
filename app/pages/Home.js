@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native'
 import {Actions} from 'react-native-router-flux'
 import Button from 'react-native-button'
 
+import TodoListContainer from '../containers/TodoListContainer'
+
 export default class Home extends Component {
   render() {
     return (
@@ -22,6 +24,7 @@ export default class Home extends Component {
         >
           Go To Add
         </Button>
+        <TodoListContainer />
       </View>
     )
   }

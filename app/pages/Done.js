@@ -16,13 +16,6 @@ export default class Done extends Component {
         >
           Go To Home
         </Button>
-        <Button
-          containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
-          style={{fontSize: 20, color: 'green'}}
-          onPress={Actions.add}
-        >
-          Go To Add
-        </Button>
       </View>
     )
   }
