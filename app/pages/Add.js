@@ -3,6 +3,10 @@ import { StyleSheet, Text, TextInput, View } from 'react-native'
 import {Actions} from 'react-native-router-flux'
 import Button from 'react-native-button'
 
+import { addTodo } from '../actions/todoActions'
+
+import { connect } from 'react-redux'
+
 export default class Add extends Component {
 
   constructor() {
@@ -15,7 +19,10 @@ export default class Add extends Component {
   }
 
   addTodo() {
-    // add todo
+    this.props.dispatch(addTodo(this.state.text))
+    this.setState({
+      text: ''
+    })
   }
 
   render() {
@@ -59,3 +66,6 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 })
+
+
+export default connect()(Add)
