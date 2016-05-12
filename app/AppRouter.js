@@ -10,9 +10,9 @@ export default class AppRouter extends Component {
     return (
       <Router>
         <Scene key="root" hideNavBar={true}>
-          <Scene key="home" component={Home} initial={true} />
+          <Scene key="home" component={Home}  />
           <Scene key="done" component={Done} />
-          <Scene key="add" component={Add}  />
+          <Scene key="add" component={Add}  initial={true} />
         </Scene>
       </Router>
     )
