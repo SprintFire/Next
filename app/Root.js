@@ -16,9 +16,8 @@ const reducers = combineReducers({
 const store = createStore(reducers)
 
 store.subscribe(() => {
-  console.log(store.getState());
+  console.log(store.getState())
 })
-
 
 export default class Root extends Component {
   render() {

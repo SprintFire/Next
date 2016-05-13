@@ -1,4 +1,4 @@
-import { ADD_TODO } from './actionTypes'
+import { ADD_TODO, TOGGLE_COMPLETED } from './actionTypes'
 
 export const addTodo = (todo) => {
   return {
@@ -9,4 +9,12 @@ export const addTodo = (todo) => {
       completed: false
     }
   }
+}
+
+export const toggleCompleted = (todoId) => {
+  return {
+    type: TOGGLE_COMPLETED,
+    todoId,
+  }
+
 }

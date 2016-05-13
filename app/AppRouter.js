@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Actions, Scene, Router, TabBar} from 'react-native-router-flux'
+import {Actions, Scene, Router, TabBar, Modal} from 'react-native-router-flux'
 
 import Home from './pages/Home'
 import Done from './pages/Done'
@@ -9,10 +9,12 @@ export default class AppRouter extends Component {
   render() {
     return (
       <Router>
-        <Scene key="root" hideNavBar={true} >
-          <Scene key="home" component={Home} initial={true} />
-          <Scene key="done" component={Done} />
-          <Scene key="add" component={Add}   />
+        <Scene key="modal" component={Modal} >
+          <Scene key="root" hideNavBar={true} >
+            <Scene key="home" component={Home} duration={0} />
+            <Scene key="done" component={Done} duration={0} />
+            <Scene key="add" component={Add} initial={true} direction="vertical" duration={100} />
+          </Scene>
         </Scene>
       </Router>
     )

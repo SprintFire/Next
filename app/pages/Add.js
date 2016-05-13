@@ -23,7 +23,7 @@ export default class Add extends Component {
     this.setState({
       text: ''
     })
-    Actions.pop()
+    Actions.home()
   }
 
   render() {

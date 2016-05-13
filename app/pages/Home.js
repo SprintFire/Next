@@ -1,30 +1,22 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import {Actions} from 'react-native-router-flux'
-import Button from 'react-native-button'
+import { StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Actions } from 'react-native-router-flux'
 
 import TodoListContainer from '../containers/TodoListContainer'
+import TaskNavbar from '../components/TaskNavbar'
 
 export default class Home extends Component {
   render() {
     return (
       <View style={styles.container} >
-        <Text > Home View </Text>
-        <Button
-          containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
-          style={{fontSize: 20, color: 'green'}}
-          onPress={Actions.done}
-        >
-          Go To Done
-        </Button>
-        <Button
-          containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: 'white'}}
-          style={{fontSize: 20, color: 'green'}}
-          onPress={Actions.add}
-        >
-          Go To Add
-        </Button>
-        <TodoListContainer />
+        <StatusBar barStyle="light-content" />
+        <TaskNavbar style={{flex: 1}} openTask={{color: 'white'}}/>
+        <TodoListContainer style={{flex: 12}}/>
+        <View style={{flex: 2}}>
+          <TouchableOpacity onPress={() => Actions.add() }>
+            <Text style={{color: "white", fontWeight: 'bold'}}>Add Todo</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     )
   }
@@ -34,7 +26,9 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 20,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#4699E3"
   }
 })

@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import { View, StyleSheet } from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 
 import Todo from './Todo'
 
 export default class TodoList extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={[styles.container, this.props.style]} contentContainerStyle={styles.contentContainer}>
         {this._todoArray(this.props.todos)}
-      </View>
+      </ScrollView>
     )
   }
 
@@ -16,7 +16,7 @@ export default class TodoList extends Component {
 
 
     let todosArray = todos.map((t) => (
-      <Todo key={t.id} >
+      <Todo key={t.id} todoId={t.id}>
         {t.text}
       </Todo>
     ))
@@ -28,5 +28,11 @@ export default class TodoList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
+    alignSelf: 'stretch'
+  },
+  contentContainer: {
+    justifyContent: 'flex-start',
+    alignItems: 'center'
   }
 })
