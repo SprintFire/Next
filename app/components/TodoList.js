@@ -6,21 +6,18 @@ import Todo from './Todo'
 export default class TodoList extends Component {
   render() {
     return (
-      <ScrollView style={[styles.container, this.props.style]} contentContainerStyle={styles.contentContainer}>
-        {this._todoArray(this.props.todos)}
+      <ScrollView style={[styles.container, this.props.style]} contentContainerStyle={styles.contentContainer} >
+        {this._todoArray()}
       </ScrollView>
     )
   }
 
-  _todoArray(todos) {
-
-
-    let todosArray = todos.map((t) => (
-      <Todo key={t.id} todoId={t.id}>
+  _todoArray() {
+    let todosArray = this.props.todos.map((t) => (
+      <Todo key={t.id} todoId={t.id} toggleCompleted={this.props.toggleCompleted}>
         {t.text}
       </Todo>
     ))
-    console.log(todosArray)
     return todosArray
   }
 }

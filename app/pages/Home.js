@@ -13,7 +13,7 @@ export default class Home extends Component {
         <TaskNavbar style={{flex: 1}} openTask={{color: 'white'}}/>
         <TodoListContainer style={{flex: 12}}/>
         <View style={{flex: 2}}>
-          <TouchableOpacity onPress={() => Actions.add() }>
+          <TouchableOpacity onPress={() => Actions.addTodo() }>
             <Text style={{color: "white", fontWeight: 'bold'}}>Add Todo</Text>
           </TouchableOpacity>
         </View>

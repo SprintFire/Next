@@ -1,40 +1,43 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { connect } from 'react-redux'
 import Swipeout from 'react-native-swipeout'
+import * as Animatable from 'react-native-animatable'
 
-import { toggleCompleted } from '../actions/todoActions'
 
-class Todo extends Component {
+
+export default class Todo extends Component {
 
   constructor() {
     super()
     this.state = {
-      closedButton: false
+      closedButton: false,
+      animation: 'slideInUp'
     }
   }
 
   render() {
+
+    let { children, toggleCompleted, todoId } = this.props
+    let { closedButton, animation } = this.state
 
     let swipeoutButtons = [
       {
         text: 'Complete',
         backgroundColor: '#FF5555',
         onPress: () => {
-          this.props.dispatch(toggleCompleted(this.props.todoId))
+          toggleCompleted(todoId)
         }
       }
     ];
 
-
     return (
-      <View style={styles.container}>
-        <Swipeout right={swipeoutButtons} close={this.state.closedButton}>
+      <Animatable.View animation={animation} duration={300} style={styles.container} >
+        <Swipeout right={swipeoutButtons} close={closedButton}>
           <View style={styles.todoContainer}>
-            <Text style={styles.text}>{this.props.children}</Text>
+            <Text style={styles.text}>{children}</Text>
           </View>
         </Swipeout>
-      </View>
+      </Animatable.View>
     )
   }
 }
@@ -59,5 +62,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   }
 })
-
-export default connect()(Todo)

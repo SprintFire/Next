@@ -13,7 +13,7 @@ export default class Done extends Component {
       <View style={styles.container} >
         <StatusBar barStyle="light-content" />
         <TaskNavbar style={{flex: 1}} pastTask={{color: 'white'}}/>
-        <TodoListContainer style={{flex: 12}}/>
+        <TodoListContainer style={{flex: 12}} completedTodos={true} />
         <View style={{flex: 2}}>
           <TouchableOpacity onPress={() => Actions.add() }>
             <Text style={{color: "white", fontWeight: 'bold'}}>Add Todo</Text>
